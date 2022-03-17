@@ -1,13 +1,13 @@
 import { BsChevronDown } from "react-icons/bs";
 import networkTypes from "../../data/NetworkTypes";
 import { INetworkType } from "../../models/Interfaces";
-import { NetworkSelectButtonProps } from "../../models/PropTypes";
+import { NetworkSelectorButtonProps } from "../../models/PropTypes";
 
-const NetworkSelectButton = ({
+const NetworkSelectorButton = ({
   activeNetwork,
   setIsOpen,
   delay,
-}: NetworkSelectButtonProps) => (
+}: NetworkSelectorButtonProps) => (
   <button
     className="flex items-center bg-white rounded-2xl px-3 py-2 mx-1 font-medium"
     onMouseEnter={() => setTimeout(() => setIsOpen(true), delay)}
@@ -24,4 +24,4 @@ const NetworkSelectButton = ({
   </button>
 );
 
-export default NetworkSelectButton;
+export default NetworkSelectorButton;

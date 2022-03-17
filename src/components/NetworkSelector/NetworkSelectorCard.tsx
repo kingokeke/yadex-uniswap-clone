@@ -1,20 +1,20 @@
+import { NetworkSelectorListItem } from ".";
 import networkTypes from "../../data/NetworkTypes";
 import { INetworkType } from "../../models/Interfaces";
-import { NetworkSelectCardProps } from "../../models/PropTypes";
-import NetworkSelectItem from "./NetworkItem";
+import { NetworkSelectorCardProps } from "../../models/PropTypes";
 
-const NetworkSelectCard = ({
+const NetworkSelectorCard = ({
   isOpen,
   setIsOpen,
   activeNetwork,
   setActiveNetwork,
-}: NetworkSelectCardProps) => {
+}: NetworkSelectorCardProps) => {
   return (
     <div className={`${isOpen ? "block" : "hidden"} absolute pt-3 mx-1`}>
       <div className="bg-white rounded-2xl p-4">
         <p className="text-gray-600 mb-3">Select a network</p>
           {networkTypes.map((networkType: INetworkType) => (
-            <NetworkSelectItem
+            <NetworkSelectorListItem
               key={networkType.name}
               networkType={networkType}
               activeNetwork={activeNetwork}
@@ -27,4 +27,4 @@ const NetworkSelectCard = ({
   );
 };
 
-export default NetworkSelectCard;
+export default NetworkSelectorCard;

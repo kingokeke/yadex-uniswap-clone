@@ -1,7 +1,6 @@
 import { useState } from "react";
+import { NetworkSelectorButton, NetworkSelectorCard } from ".";
 import { NetworkSelectorProps } from "../../models/PropTypes";
-import NetworkSelectButton from "./NetworkSelectButton";
-import NetworkSelectCard from "./NetworkSelectCard";
 
 const NetworkSelector = ({className}: NetworkSelectorProps) => {
   const hoverDelay = 100;
@@ -10,8 +9,8 @@ const NetworkSelector = ({className}: NetworkSelectorProps) => {
 
   return (
     <div className={className} onMouseLeave={() => setTimeout(() => setIsOpen(false), hoverDelay)}>
-      <NetworkSelectButton activeNetwork={activeNetwork} setIsOpen={setIsOpen} delay={hoverDelay}/>
-      <NetworkSelectCard isOpen={isOpen} activeNetwork={activeNetwork} setActiveNetwork={setActiveNetwork} setIsOpen={setIsOpen} />
+      <NetworkSelectorButton activeNetwork={activeNetwork} setIsOpen={setIsOpen} delay={hoverDelay}/>
+      <NetworkSelectorCard isOpen={isOpen} activeNetwork={activeNetwork} setActiveNetwork={setActiveNetwork} setIsOpen={setIsOpen} />
     </div>
   );
 };

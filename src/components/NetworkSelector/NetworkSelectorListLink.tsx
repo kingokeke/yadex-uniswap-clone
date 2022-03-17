@@ -1,7 +1,7 @@
 import { BiLinkExternal } from "react-icons/bi";
-import { NetworkItemLinkProps } from "../../models/PropTypes";
+import { NetworkSelectorListLinkProps } from "../../models/PropTypes";
 
-const NetworkSelectItemLink = ({ link, activeNetwork, networkType }: NetworkItemLinkProps) => {
+const NetworkSelectorListLink = ({ link, activeNetwork, networkType }: NetworkSelectorListLinkProps) => {
   return (
     <a
       href={link.url}
@@ -16,4 +16,4 @@ const NetworkSelectItemLink = ({ link, activeNetwork, networkType }: NetworkItem
   );
 };
 
-export default NetworkSelectItemLink;
+export default NetworkSelectorListLink;

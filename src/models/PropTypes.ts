@@ -17,27 +17,27 @@ export interface ConnectWalletProps extends BaseProps {}
 
 export interface NavbarExtrasProps extends BaseProps { }
 
-export interface NetworkSelectCardProps extends BaseProps {
+export interface NetworkSelectorCardProps extends BaseProps {
   isOpen: boolean;
   activeNetwork: string;
   setIsOpen: (isOpen: boolean) => void;
   setActiveNetwork: (network: string) => void;
 }
 
-export interface NetworkSelectItemProps extends BaseProps {
+export interface NetworkSelectorListItemProps extends BaseProps {
   networkType: INetworkType;
   activeNetwork: string;
   setIsOpen: (isOpen: boolean) => void;
   setActiveNetwork: (network: string) => void;
 }
 
-export interface NetworkItemLinkProps extends BaseProps {
+export interface NetworkSelectorListLinkProps extends BaseProps {
   link: ILink;
   networkType: INetworkType;
   activeNetwork: string;
 }
 
-export interface NetworkSelectButtonProps extends BaseProps {
+export interface NetworkSelectorButtonProps extends BaseProps {
   delay: number;
   activeNetwork: string;
   setIsOpen: (isOpen: boolean) => void;

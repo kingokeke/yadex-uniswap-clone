@@ -1,13 +1,13 @@
+import { NetworkSelectorListLink } from ".";
 import { ILink } from "../../models/Interfaces";
-import { NetworkSelectItemProps } from "../../models/PropTypes";
-import NetworkSelectItemLink from "./NetworkSelectItemLink";
+import { NetworkSelectorListItemProps } from "../../models/PropTypes";
 
-const NetworkSelectItem = ({
+const NetworkSelectorListItem = ({
   networkType,
   activeNetwork,
   setActiveNetwork,
   setIsOpen,
-}: NetworkSelectItemProps) => (
+}: NetworkSelectorListItemProps) => (
     <div
       key={networkType.name}
       className={`${activeNetwork === networkType.name ? "p-4 bg-gray-100 rounded-xl" : null} py-2 my-2 cursor-pointer w-64 first:mt-0 last:mb-0`}
@@ -23,9 +23,9 @@ const NetworkSelectItem = ({
       </div>
       {networkType.links.length > 0 &&
         networkType.links.map((link: ILink) => (
-          <NetworkSelectItemLink key={link.name} link={link} activeNetwork={activeNetwork} networkType={networkType}/>
+          <NetworkSelectorListLink key={link.name} link={link} activeNetwork={activeNetwork} networkType={networkType}/>
         ))}
     </div>
   );
 
-export default NetworkSelectItem;
+export default NetworkSelectorListItem;
