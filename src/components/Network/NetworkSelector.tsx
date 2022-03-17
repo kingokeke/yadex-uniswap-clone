@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { NetworkSelectProps } from "../../models/PropTypes";
+import { NetworkSelectorProps } from "../../models/PropTypes";
 import NetworkSelectButton from "./NetworkSelectButton";
 import NetworkSelectCard from "./NetworkSelectCard";
 
-const NetworkSelector = ({className}: NetworkSelectProps) => {
+const NetworkSelector = ({className}: NetworkSelectorProps) => {
   const hoverDelay = 100;
   const [isOpen, setIsOpen] = useState(false);
   const [activeNetwork, setActiveNetwork] = useState("Ethereum");
