@@ -12,8 +12,8 @@ const networkTypes: INetworkType[] = [
   },
   {
     name: "Polygon", image: polygonIcon, links: [
+      { name: "Polygon Bridge", url: "https://wallet.polygon.technology/bridge" },
       { name: "Polygonscan", url: "https://www.polygonscan.com" },
-      { name: "Polygon Bridge", url: "" }
     ]
   },
   {
