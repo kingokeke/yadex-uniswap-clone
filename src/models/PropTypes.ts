@@ -42,3 +42,13 @@ export interface NetworkSelectorButtonProps extends BaseProps {
   activeNetwork: string;
   setIsOpen: (isOpen: boolean) => void;
 }
+
+export interface SelectTokenButtonProps extends BaseProps {
+  icon: string;
+  token: string;
+}
+
+export interface SwapInputFieldProps extends BaseProps {
+  icon: string;
+  token: string;
+}
