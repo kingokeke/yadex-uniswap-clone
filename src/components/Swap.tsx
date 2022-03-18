@@ -3,7 +3,17 @@ import SwapInputField from "./SwapInputField";
 import ethereumIcon from "../assets/images/ethereum.svg";
 import polygonIcon from "../assets/images/polygon.svg";
 import { FiSettings } from "react-icons/fi";
+import { useRecoilState } from "recoil";
+import { currentRouteAtom } from "../store/atoms";
+import { useEffect } from "react";
+
 const Swap = () => {
+  const [_, setCurrentRoute] = useRecoilState(currentRouteAtom);
+
+  useEffect(() => {
+    setCurrentRoute("swap");
+  }, []);
+
   return (
     <div className="flex justify-center mt-20">
       <div className="p-2 bg-white rounded-2xl w-[480px] shadow-lg">
