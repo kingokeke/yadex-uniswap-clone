@@ -8,7 +8,7 @@ import NetworkSelector from "../NetworkSelector";
 const Navbar = ({ className }: NavbarProps) => (
   <nav className={`${className} flex justify-between items-center pt-3 mx-4`}>
     <Logo className="flex basis-1/3" />
-    <NavMenu route="" className="flex justify-center basis-1/3" />
+    <NavMenu className="flex justify-center basis-1/3" />
     <div className="flex justify-end basis-1/3">
       <NetworkSelector className="" />
       <ConnectWallet className="" />
