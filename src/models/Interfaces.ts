@@ -12,3 +12,9 @@ export interface INetworkType {
   image: string;
   links: ILink[];
 }
+
+export interface IToken {
+  name: string;
+  symbol: string;
+  icon: string;
+}

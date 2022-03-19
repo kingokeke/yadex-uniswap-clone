@@ -1,4 +1,4 @@
-import { ILink, INetworkType } from "./Interfaces";
+import { ILink, INetworkType, IToken } from "./Interfaces";
 
 interface BaseProps {
   children?: React.ReactNode;
@@ -44,11 +44,9 @@ export interface NetworkSelectorButtonProps extends BaseProps {
 }
 
 export interface SelectTokenButtonProps extends BaseProps {
-  icon: string;
-  token: string;
+  token: IToken;
 }
 
 export interface SwapInputFieldProps extends BaseProps {
-  icon: string;
-  token: string;
+  token: IToken;
 }
