@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import tokens from "../data/tokens";
 
 export const ropstenUrlAtom = atom({
   key: "ropstenUrlAtom",
@@ -18,4 +19,24 @@ export const gasPriceAtom = atom({
 export const currentRouteAtom = atom({
   key: "currentRouteAtom",
   default: "",
+});
+
+export const walletConnectedAtom = atom({
+  key: "walletConnectedAtom",
+  default: false,
+});
+
+export const tokenSwapFromAtom = atom({
+  key: "tokenSwapFromAtom",
+  default: tokens[0],
+});
+
+export const tokenSwapToAtom = atom({
+  key: "tokenSwapToAtom",
+  // default: tokens[1],
+  default: {
+    name: "",
+    symbol: "",
+    icon: "",
+  },
 });
