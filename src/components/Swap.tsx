@@ -1,9 +1,9 @@
 import { FaArrowDown } from "react-icons/fa";
 import SwapInputField from "./SwapInputField";
-import { FiSettings } from "react-icons/fi";
 import { useRecoilState } from "recoil";
 import { currentRouteAtom, tokenSwapFromAtom, tokenSwapToAtom, walletConnectedAtom } from "../store/atoms";
 import { useEffect } from "react";
+import SwapSettings from "./SwapSettings";
 
 const Swap = () => {
   const [_, setCurrentRoute] = useRecoilState(currentRouteAtom);
@@ -30,11 +30,11 @@ const Swap = () => {
       <div className="p-2 bg-white rounded-2xl shadow-lg">
         <div className="flex justify-between items-center px-3 mt-2 mb-4">
           <p className="font-medium text-l">Swap</p>
-          <FiSettings className="text-xl cursor-pointer" />
+          <SwapSettings />
         </div>
         <SwapInputField token={tokenSwapFrom} className="" />
         <div className="flex justify-center -mt-4 -mb-4">
-          <div className="flex justify-center items-center w-9 h-9 bg-gray-100 border-white border-4 rounded-xl cursor-pointer z-20" onClick={switchTokens}>
+          <div className="flex justify-center items-center w-9 h-9 bg-gray-100 border-white border-4 rounded-xl cursor-pointer z-10" onClick={switchTokens}>
             <FaArrowDown />
           </div>
         </div>
