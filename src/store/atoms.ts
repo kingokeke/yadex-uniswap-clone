@@ -26,17 +26,24 @@ export const walletConnectedAtom = atom({
   default: false,
 });
 
-export const tokenSwapFromAtom = atom({
-  key: "tokenSwapFromAtom",
-  default: tokens[0],
-});
-
-export const tokenSwapToAtom = atom({
-  key: "tokenSwapToAtom",
+export const currentSwapAtom = atom({
+  key: "currentSwapAtom",
   default: {
-    name: "",
-    symbol: "",
-    icon: "",
+    from: {
+      name: tokens[0].name,
+      symbol: tokens[0].symbol,
+      icon: tokens[0].icon,
+    },
+    to: {
+      name: "",
+      symbol: "",
+      icon: "",
+    },
+    amount: 0,
+    gasPrice: 0,
+    gasLimit: 0,
+    total: 0,
+    status: "",
   },
 });
 
