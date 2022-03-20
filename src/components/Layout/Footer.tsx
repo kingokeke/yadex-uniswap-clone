@@ -10,11 +10,15 @@ const Footer = () => {
   const [gasPrice, setGasPrice] = useRecoilState(gasPriceAtom);
 
   useEffect(() => {
-    const interval = setInterval(async() => {
-      const provider = new ethers.providers.StaticJsonRpcProvider(url);
-      const [blockNumber, gasPrice] = await Promise.all([provider.getBlockNumber(), provider.getGasPrice()]);
-      setHeight(blockNumber);
-      setGasPrice(convertWeiToGwei(gasPrice));
+    const interval = setInterval(async () => {
+      try {
+        const provider = new ethers.providers.StaticJsonRpcProvider(url);
+        const [blockNumber, gasPrice] = await Promise.all([provider.getBlockNumber(), provider.getGasPrice()]);
+        setHeight(blockNumber);
+        setGasPrice(convertWeiToGwei(gasPrice));
+      } catch (err) {
+        console.log("Footer Component:", err);
+      }
     }, 30000);
     return () => clearInterval(interval);
   }, [height, gasPrice]);
