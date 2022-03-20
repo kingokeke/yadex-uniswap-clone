@@ -6,21 +6,12 @@ import { swapSettingsAtom } from "../store/atoms";
 import Toggle from "./Toggle";
 
 const SwapSettings = ({ className }: SwapSettingsProps) => {
-  const settingsCard = useRef();
   const [showSettings, setShowSettings] = useState(false);
   const [settings, setSettings] = useRecoilState(swapSettingsAtom);
   const { slippageTolerance, transactionDeadline, autoRouterApi, expertMode } = settings;
 
   const setSlippageTolerance = (event: ChangeEvent<HTMLInputElement>) => {
     setSettings({ ...settings, slippageTolerance });
-  };
-
-  const toggleAutoRouterApi = (isToggled: boolean) => {
-    setSettings({ ...settings, autoRouterApi: isToggled });
-  };
-
-  const toggleExpertMode = (isToggled: boolean) => {
-    setSettings({ ...settings, expertMode: isToggled });
   };
 
   return (
@@ -45,11 +36,11 @@ const SwapSettings = ({ className }: SwapSettingsProps) => {
         <p className="font-medium text-gray-600 mb-2 text-sm">Interface Settings</p>
         <div className="flex items-center justify-between my-1">
           <p className="text-sm">Auto Router API</p>
-          <Toggle titleOff="" titleOn="" isToggled={autoRouterApi} setToggled={toggleAutoRouterApi} />
+          <Toggle titleOff="" titleOn="" isToggled={autoRouterApi} setToggled={(autoRouterApi) => setSettings({ ...settings, autoRouterApi })} />
         </div>
         <div className="flex items-center justify-between my-1">
           <p className="text-sm">Expert Mode</p>
-          <Toggle titleOff="" titleOn="" isToggled={expertMode} setToggled={toggleExpertMode} />
+          <Toggle titleOff="" titleOn="" isToggled={expertMode} setToggled={(expertMode) => setSettings({ ...settings, expertMode })} />
         </div>
       </div>
     </div>
