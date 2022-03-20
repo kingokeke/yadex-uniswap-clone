@@ -50,3 +50,13 @@ export interface SelectTokenButtonProps extends BaseProps {
 export interface SwapInputFieldProps extends BaseProps {
   token: IToken;
 }
+
+export interface SwapSettingsProps extends BaseProps {
+}
+
+export interface ToggleProps extends BaseProps {
+  isToggled: boolean;
+  setToggled: (isToggled: boolean) => void;
+  titleOn: string;
+  titleOff: string;
+}
