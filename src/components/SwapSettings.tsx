@@ -24,7 +24,7 @@ const SwapSettings = ({ className }: SwapSettingsProps) => {
   };
 
   return (
-    <div className={`${className} flex flex-col items-end select-none`}>
+    <div className={`${className} flex flex-col items-end`}>
       <FiSettings className="text-xl cursor-pointer focus-visible:outline-none" onClick={() => { setShowSettings(!showSettings); } } />
       <div className={`${showSettings ? "block" : "hidden"} absolute mt-8 p-4 z-20 bg-gray-100 text-gray-500 rounded-lg border border-gray-300 shadow-lg w-80`}>
         <p className="font-medium text-gray-600 mb-2 text-sm">Transaction Settings</p>
