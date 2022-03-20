@@ -33,10 +33,19 @@ export const tokenSwapFromAtom = atom({
 
 export const tokenSwapToAtom = atom({
   key: "tokenSwapToAtom",
-  // default: tokens[1],
   default: {
     name: "",
     symbol: "",
     icon: "",
   },
+});
+
+export const swapSettingsAtom = atom({
+  key: "swapSettingsAtom",
+  default: {
+    slippageTolerance: 0.1,
+    transactionDeadline: 30,
+    autoRouterApi: true,
+    expertMode: false
+  }
 });
