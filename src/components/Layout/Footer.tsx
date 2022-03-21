@@ -1,18 +1,18 @@
 import { ethers } from "ethers";
 import { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { ropstenUrlAtom, blockHeightAtom, gasPriceAtom } from "../../store/atoms";
+import { infuraKeyAtom, blockHeightAtom, gasPriceAtom } from "../../store/atoms";
 import { convertWeiToGwei } from "../../utils";
 
 const Footer = () => {
-  const url = useRecoilValue(ropstenUrlAtom);
+  const infuraKey = useRecoilValue(infuraKeyAtom);
   const [height, setHeight] = useRecoilState(blockHeightAtom);
   const [gasPrice, setGasPrice] = useRecoilState(gasPriceAtom);
 
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
-        const provider = new ethers.providers.StaticJsonRpcProvider(url);
+        const provider = new ethers.providers.InfuraProvider("ropsten", infuraKey);
         const [blockNumber, gasPrice] = await Promise.all([provider.getBlockNumber(), provider.getGasPrice()]);
         setHeight(blockNumber);
         setGasPrice(convertWeiToGwei(gasPrice));

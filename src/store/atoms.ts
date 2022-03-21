@@ -1,9 +1,9 @@
 import { atom } from "recoil";
 import tokens from "../data/tokens";
 
-export const ropstenUrlAtom = atom({
-  key: "ropstenUrlAtom",
-  default: "https://ropsten.infura.io/v3/e85845b198df4a2fb25e9aafd07cc2d8",
+export const infuraKeyAtom = atom({
+  key: "infuraKeyAtom",
+  default: "e85845b198df4a2fb25e9aafd07cc2d8"
 });
 
 export const blockHeightAtom = atom({
