@@ -10,7 +10,7 @@ const NetworkSelectorListItem = ({
 }: NetworkSelectorListItemProps) => (
     <div
       key={networkType.name}
-      className={`${activeNetwork === networkType.name ? "p-4 bg-gray-100 rounded-xl" : null} py-2 my-2 cursor-pointer w-64 first:mt-0 last:mb-0`}
+      className={(activeNetwork === networkType.name ? "p-4 bg-gray-100 rounded-xl" + " ": "") + "py-2 my-2 cursor-pointer w-64 first:mt-0 last:mb-0"}
       onClick={() => { setActiveNetwork(networkType.name); setIsOpen(false); }}
     >
       <div className="font-medium flex justify-between items-center">

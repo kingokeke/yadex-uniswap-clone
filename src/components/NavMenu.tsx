@@ -12,9 +12,9 @@ const NavMenu = ({ className }: NavMenuProps) => {
     <div id="menu" className={className}>
       <ul className="flex bg-white rounded-2xl w-fit">
         {links.map((link: IMenuLink) => (
-          <li key={link.name} className={`${route === link.url ? "bg-gray-100 font-bold rounded-xl" : null} m-1`}>
+          <li key={link.name} className={(route === link.url ? "bg-gray-100 font-bold rounded-xl" + " " : "") + "m-1"}>
             {link.isExternal ?
-              <a href={link.url} className="px-4 py-1 inline-block" target="_blank">{link.name}<sup className={`${link.isExternal ? "inline-block" : "hidden"}`}>↗</sup></a> :
+              <a href={link.url} className="px-4 py-1 inline-block" target="_blank">{link.name}<sup className={link.isExternal ? "inline-block" : "hidden"}>↗</sup></a> :
               <Link to={link.url} className="px-4 py-1 inline-block">{link.name}</Link>
             }
           </li>

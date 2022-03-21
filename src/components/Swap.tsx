@@ -4,7 +4,6 @@ import { useRecoilState } from "recoil";
 import { currentRouteAtom, walletConnectedAtom, currentSwapAtom } from "../store/atoms";
 import { useEffect } from "react";
 import SwapSettings from "./SwapSettings";
-import { json } from "stream/consumers";
 
 const Swap = () => {
   const [_, setCurrentRoute] = useRecoilState(currentRouteAtom);
