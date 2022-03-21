@@ -16,6 +16,26 @@ export interface NetworkSelectorProps extends BaseProps {}
 export interface ConnectWalletProps extends BaseProps {}
 
 export interface NavbarExtrasProps extends BaseProps { }
+export interface TokenBadgeProps extends BaseProps {
+  token: IToken;
+}
+
+export interface ModalContainerProps extends BaseProps {
+  width?: string;
+ }
+
+export interface ModalHeaderProps extends BaseProps {
+  title: string;
+  closeModal: () => void;
+}
+
+export interface ModalBodyProps extends BaseProps { }
+
+export interface ModalFooterProps extends BaseProps { }
+
+export interface SelectTokenModalProps extends BaseProps {
+  closeModal: () => void;
+}
 
 export interface NetworkSelectorCardProps extends BaseProps {
   isOpen: boolean;
@@ -45,6 +65,7 @@ export interface NetworkSelectorButtonProps extends BaseProps {
 
 export interface SelectTokenButtonProps extends BaseProps {
   token: IToken;
+  launchModal: () => void;
 }
 
 export interface SwapInputFieldProps extends BaseProps {
