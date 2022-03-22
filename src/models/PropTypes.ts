@@ -19,6 +19,9 @@ export interface NavbarExtrasProps extends BaseProps { }
 export interface TokenBadgeProps extends BaseProps {
   token: IToken;
 }
+export interface TokenListingProps extends BaseProps {
+  token: IToken;
+}
 
 export interface ModalContainerProps extends BaseProps {
   width?: string;
@@ -72,8 +75,7 @@ export interface SwapInputFieldProps extends BaseProps {
   token: IToken;
 }
 
-export interface SwapSettingsProps extends BaseProps {
-}
+export interface SwapSettingsProps extends BaseProps {}
 
 export interface ToggleProps extends BaseProps {
   isToggled: boolean;
