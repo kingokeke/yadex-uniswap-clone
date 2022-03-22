@@ -7,7 +7,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 const App = () => {
-  const fetchTokenDelay = 1000;
+  const fetchTokenDelay = 5000;
   const [_, setTokensList] = useRecoilState(tokensListAtom);
 
   useEffect(() => {
