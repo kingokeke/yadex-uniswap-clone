@@ -2,7 +2,7 @@ import { IToken } from "../models/Interfaces";
 import { IGetSupportedTokensDTO } from "../models/Moralis/dex-plugin";
 import { getSupportedTokens } from "./moralis-dex-plugin";
 
-export const fetchTokens = async (): Promise<IToken[]> => {
+export const fetchTokensFromServer = async (): Promise<IToken[]> => {
   const requestBody: IGetSupportedTokensDTO = { chain: "eth" };
   const { tokens } = await getSupportedTokens(requestBody);
   return Object.values<IToken>(tokens).sort((a: IToken, b: IToken) => sortTokens(a, b));
