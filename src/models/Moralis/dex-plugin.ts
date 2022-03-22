@@ -1,7 +1,5 @@
-import { MORALIS_CHAIN } from "./core";
-
 interface BaseDTO {
-  chain: MORALIS_CHAIN;
+  chain: string;
 }
 
 interface TokenDTO extends BaseDTO {
