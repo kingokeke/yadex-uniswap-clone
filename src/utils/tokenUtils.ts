@@ -1,10 +1,9 @@
 import { IToken } from "../models/Interfaces";
-import { MORALIS_CHAIN } from "../models/Moralis/core";
 import { IGetSupportedTokensDTO } from "../models/Moralis/dex-plugin";
 import { getSupportedTokens } from "./moralis-dex-plugin";
 
 export const fetchTokens = async (): Promise<IToken[]> => {
-  const requestBody: IGetSupportedTokensDTO = { chain: MORALIS_CHAIN.ETH };
+  const requestBody: IGetSupportedTokensDTO = { chain: "eth" };
   const { tokens } = await getSupportedTokens(requestBody);
   return Object.values<IToken>(tokens).sort((a: IToken, b: IToken) => sortTokens(a, b));
 };
