@@ -16,5 +16,8 @@ export interface INetworkType {
 export interface IToken {
   name: string;
   symbol: string;
-  icon: string;
+  address: string;
+  decimals: number;
+  logoURI: string;
+  eip2612?: boolean;
 }
