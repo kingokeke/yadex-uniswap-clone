@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import tokens from "../data/tokens";
+import tokens, { nullToken } from "../data/frequentlySwappedTokens";
 
 export const infuraKeyAtom = atom({
   key: "infuraKeyAtom",
@@ -21,24 +21,20 @@ export const currentRouteAtom = atom({
   default: "",
 });
 
-export const walletConnectedAtom = atom({
-  key: "walletConnectedAtom",
-  default: false,
+export const userAccountAtom = atom({
+  key: "userAccountAtom",
+  default: {
+    connected: false,
+    address: "",
+    balance: 10
+  },
 });
 
 export const currentSwapAtom = atom({
   key: "currentSwapAtom",
   default: {
-    from: {
-      name: tokens[0].name,
-      symbol: tokens[0].symbol,
-      icon: tokens[0].icon,
-    },
-    to: {
-      name: "",
-      symbol: "",
-      icon: "",
-    },
+    from: tokens[0],
+    to: nullToken,
     amount: 0,
     gasPrice: 0,
     gasLimit: 0,
@@ -55,4 +51,9 @@ export const swapSettingsAtom = atom({
     autoRouterApi: true,
     expertMode: false
   }
+});
+
+export const tokensListAtom = atom({
+  key: "tokensListAtom",
+  default: [],
 });
