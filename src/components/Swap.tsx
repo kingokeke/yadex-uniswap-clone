@@ -1,22 +1,18 @@
-import { FaArrowDown } from "react-icons/fa";
-import SwapInputField from "./SwapInputField";
-import { useRecoilState } from "recoil";
-import { currentRouteAtom, walletConnectedAtom, currentSwapAtom } from "../store/atoms";
 import { useEffect } from "react";
+import { FaArrowDown } from "react-icons/fa";
+import { useRecoilState } from "recoil";
+import { currentRouteAtom, currentSwapAtom, userAccountAtom } from "../store/atoms";
+import SwapInputField from "./SwapInputField";
 import SwapSettings from "./SwapSettings";
 
 const Swap = () => {
   const [_, setCurrentRoute] = useRecoilState(currentRouteAtom);
-  const [walletConnected, setWalletConnected] = useRecoilState(walletConnectedAtom);
+  const [userAccount, __] = useRecoilState(userAccountAtom);
   const [currentSwap, setCurrentSwap] = useRecoilState(currentSwapAtom);
-
-  const swapButtonText = (
-    !walletConnected ? "Connect Wallet" : "Swap"
-  );
 
   const switchTokens = () => {
     const temp = currentSwap.from;
-    setCurrentSwap({...currentSwap, from: currentSwap.to, to: temp});
+    setCurrentSwap({ ...currentSwap, from: currentSwap.to, to: temp });
   };
 
   useEffect(() => {
@@ -38,7 +34,7 @@ const Swap = () => {
         </div>
         <SwapInputField token={currentSwap.to} className="" />
         <div className="">
-          <button className="w-full flex justify-center bg-pink-100 hover:bg-pink-200 py-3 mt-2 rounded-2xl text-pink-500 font-medium text-lg">{swapButtonText}</button>
+          <button className="w-full flex justify-center bg-pink-100 hover:bg-pink-200 py-3 mt-2 rounded-2xl text-pink-500 font-medium text-lg">{userAccount.connected ? "Swap" : "Connect Wallet"}</button>
         </div>
       </div>
     </div>
