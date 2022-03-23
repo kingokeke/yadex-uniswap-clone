@@ -19,7 +19,12 @@ const SelectTokenModal = ({ className, closeModal }: SelectTokenModalProps) => {
 
   const searchTokens = (event: ChangeEvent<HTMLInputElement>): void => {
     const searchValue = event.target.value.toLowerCase();
-    const filtered = tokensList.filter((token: IToken) => token.symbol.toLowerCase().includes(searchValue) || token.name.toLowerCase().includes(searchValue));
+    const filtered = tokensList.filter(
+      (token: IToken) =>
+        token.symbol.toLowerCase().includes(searchValue) ||
+        token.name.toLowerCase().includes(searchValue) ||
+        token.address.toLowerCase().includes(searchValue)
+    );
     setFilteredTokens(filtered);
   };
 
@@ -43,9 +48,12 @@ const SelectTokenModal = ({ className, closeModal }: SelectTokenModalProps) => {
         </div>
       </ModalHeader>
       <ModalBody>
-        {filteredTokens.length > 0 && filteredTokens.map((token: IToken, index: number) => (
-          <TokenListing key={index} token={token} />
-        ))}
+        {filteredTokens.length > 0 ?
+          filteredTokens.map((token: IToken, index: number) => <TokenListing key={index} token={token} />) :
+          <div className="flex items-center justify-center h-96">
+            <p className="text-gray-600">No results found</p>
+          </div>
+        }
       </ModalBody>
       <ModalFooter className="bg-gray-100">
         <div className="text-pink-600 font-medium flex justify-center items-center">
