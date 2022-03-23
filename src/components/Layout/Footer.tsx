@@ -13,9 +13,9 @@ const Footer = () => {
     const interval = setInterval(async () => {
       try {
         const provider = new ethers.providers.InfuraProvider("ropsten", infuraKey);
-        const [blockNumber, gasPrice] = await Promise.all([provider.getBlockNumber(), provider.getGasPrice()]);
-        setHeight(blockNumber);
-        setGasPrice(convertWeiToGwei(gasPrice));
+        const [latestBlockNumber, latestGasPrice] = await Promise.all([provider.getBlockNumber(), provider.getGasPrice()]);
+        setHeight(latestBlockNumber);
+        setGasPrice(convertWeiToGwei(latestGasPrice));
       } catch (err) {
         console.log("Footer Component:", err);
       }
