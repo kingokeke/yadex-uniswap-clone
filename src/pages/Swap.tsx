@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { FaArrowDown } from "react-icons/fa";
 import { useRecoilState } from "recoil";
+import { IToken } from "../models/Interfaces";
 import { currentRouteAtom, currentSwapAtom, userAccountAtom } from "../store/atoms";
-import SwapInputField from "./SwapInputField";
-import SwapSettings from "./SwapSettings";
+import SwapInputField from "../components/SwapInputField";
+import SwapSettings from "../components/SwapSettings";
 
 const Swap = () => {
   const [_, setCurrentRoute] = useRecoilState(currentRouteAtom);
@@ -18,6 +19,14 @@ const Swap = () => {
   useEffect(() => {
     setCurrentRoute("swap");
   }, []);
+
+  const setInputFieldValue = (token: IToken, direction: "from" | "to", amount: number): void => {
+    if (direction === "from") {
+      setCurrentSwap({ ...currentSwap, from: token, amount });
+    } else {
+      setCurrentSwap({ ...currentSwap, to: token, amount });
+    }
+  };
 
   return (
     <div className="flex justify-center mt-20">

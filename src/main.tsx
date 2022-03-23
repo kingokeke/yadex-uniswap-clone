@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import "./assets/styles/index.css";
 import App from "./components/Layout/App";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Swap from "./components/Swap";
-import Pool from "./components/Pool";
-import Vote from "./components/Vote";
+import Swap from "./pages/Swap";
+import Pool from "./pages/Pool";
+import Vote from "./pages/Vote";
 import { RecoilRoot } from "recoil";
 import { MoralisProvider } from "react-moralis";
 
