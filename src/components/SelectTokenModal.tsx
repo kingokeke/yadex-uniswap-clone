@@ -12,7 +12,7 @@ import ModalHeader from "./Modal/ModalHeader";
 import TokenBadge from "./TokenBadge";
 import TokenListing from "./TokenListing";
 
-const SelectTokenModal = ({ className, closeModal }: SelectTokenModalProps) => {
+const SelectTokenModal = ({ className, closeModal, selectToken, direction }: SelectTokenModalProps) => {
   const tokensList: IToken[] = useRecoilValue(tokensListAtom);
   const [filteredTokens, setFilteredTokens] = useState(tokensList);
   useEffect(() => setFilteredTokens(tokensList), [tokensList]);
@@ -49,7 +49,7 @@ const SelectTokenModal = ({ className, closeModal }: SelectTokenModalProps) => {
       </ModalHeader>
       <ModalBody>
         {filteredTokens.length > 0 ?
-          filteredTokens.map((token: IToken, index: number) => <TokenListing key={index} token={token} />) :
+          filteredTokens.map((token: IToken) => <div key={token.address} onClick={() => { closeModal(); selectToken({ token, direction })}}><TokenListing token={token} /></div>) :
           <div className="flex items-center justify-center h-96">
             <p className="text-gray-600">No results found</p>
           </div>
