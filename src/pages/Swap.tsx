@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { FaArrowDown } from "react-icons/fa";
 import { useRecoilState } from "recoil";
-import { ISwapTokenParams, SWAP_DIRECTION } from "../models/Interfaces";
+import { ISwapTokenParams } from "../models/Interfaces";
 import { currentRouteAtom, currentSwapAtom, userAccountAtom } from "../store/atoms";
 import SwapInputField from "../components/SwapInputField";
 import SwapSettings from "../components/SwapSettings";
+import { SWAP_DIRECTION } from "../models/Enums";
 
 const Swap = () => {
   const [_, setCurrentRoute] = useRecoilState(currentRouteAtom);
