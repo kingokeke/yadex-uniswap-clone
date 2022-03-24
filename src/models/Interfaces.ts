@@ -1,3 +1,5 @@
+import { SWAP_DIRECTION } from "./Enums";
+
 export interface ILink {
   name: string;
   url: string;
@@ -20,4 +22,9 @@ export interface IToken {
   decimals: number;
   logoURI: string;
   eip2612?: boolean;
+}
+
+export interface ISwapTokenParams {
+  token: IToken;
+  direction: SWAP_DIRECTION;
 }

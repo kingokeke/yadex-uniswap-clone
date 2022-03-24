@@ -1,4 +1,5 @@
-import { ILink, INetworkType, IToken } from "./Interfaces";
+import { SWAP_DIRECTION } from "./Enums";
+import { ILink, INetworkType, ISwapTokenParams, IToken } from "./Interfaces";
 
 interface BaseProps {
   children?: React.ReactNode;
@@ -37,6 +38,8 @@ export interface ModalBodyProps extends BaseProps { }
 export interface ModalFooterProps extends BaseProps { }
 
 export interface SelectTokenModalProps extends BaseProps {
+  direction: SWAP_DIRECTION;
+  selectToken: (params: ISwapTokenParams) => void;
   closeModal: () => void;
 }
 
@@ -73,6 +76,8 @@ export interface SelectTokenButtonProps extends BaseProps {
 
 export interface SwapInputFieldProps extends BaseProps {
   token: IToken;
+  direction: SWAP_DIRECTION;
+  setSwapParams: (params: ISwapTokenParams) => void;
 }
 
 export interface SwapSettingsProps extends BaseProps {}
