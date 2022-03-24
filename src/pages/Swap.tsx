@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { FaArrowDown } from "react-icons/fa";
 import { useRecoilState } from "recoil";
-import { IToken } from "../models/Interfaces";
+import { ISwapTokenParams, SWAP_DIRECTION } from "../models/Interfaces";
 import { currentRouteAtom, currentSwapAtom, userAccountAtom } from "../store/atoms";
 import SwapInputField from "../components/SwapInputField";
 import SwapSettings from "../components/SwapSettings";
@@ -20,11 +20,11 @@ const Swap = () => {
     setCurrentRoute("swap");
   }, []);
 
-  const setInputFieldValue = (token: IToken, direction: "from" | "to", amount: number): void => {
-    if (direction === "from") {
-      setCurrentSwap({ ...currentSwap, from: token, amount });
+  const setSwapParams = ({ token, direction }: ISwapTokenParams): void => {
+    if (direction === SWAP_DIRECTION.FROM) {
+      setCurrentSwap({ ...currentSwap, from: token });
     } else {
-      setCurrentSwap({ ...currentSwap, to: token, amount });
+      setCurrentSwap({ ...currentSwap, to: token });
     }
   };
 
@@ -35,13 +35,13 @@ const Swap = () => {
           <p className="font-medium text-l">Swap</p>
           <SwapSettings />
         </div>
-        <SwapInputField token={currentSwap.from} className="" />
+        <SwapInputField token={currentSwap.from} direction={SWAP_DIRECTION.FROM} className="" setSwapParams={setSwapParams}/>
         <div className="flex justify-center -mt-4 -mb-4">
           <div className="flex justify-center items-center w-9 h-9 bg-gray-100 border-white border-4 rounded-xl cursor-pointer z-10" onClick={switchTokens}>
             <FaArrowDown />
           </div>
         </div>
-        <SwapInputField token={currentSwap.to} className="" />
+        <SwapInputField token={currentSwap.to} direction={SWAP_DIRECTION.TO} className="" setSwapParams={setSwapParams} />
         <div className="">
           <button className="w-full flex justify-center bg-pink-100 hover:bg-pink-200 py-3 mt-2 rounded-2xl text-pink-500 font-medium text-lg">{userAccount.connected ? "Swap" : "Connect Wallet"}</button>
         </div>
